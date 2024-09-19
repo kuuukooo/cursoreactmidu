@@ -1,34 +1,84 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import confetti from 'canvas-confetti'
+import { Square } from './components/Square'
+import { turns } from './constants'
+import { checkWinnerFrom, checkEndGame } from './logic/board'
+import { WinnerModal } from './components/WinnerModal'
 import './App.css'
+// TODO: Investigar si se puede hacer online y p2p
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [board, setBoard] = useState(
+    Array(9).fill(null)
+  )
+
+  const [turn, setTurn] = useState(turns.X) 
+  const [winner, setWinner] = useState(null)
+  //null = no hay ganador, false = empate
+
+
+
+  const resetGame = () => {
+    setBoard(Array(9).fill(null))
+    setTurn(turns.X)
+    setWinner(null)
+  }
+
+
+  const updateBoard = (index) => {
+    // si ya tiene algo no hagas nada
+    if (board[index] || winner) return
+
+    // actualizar el tablero
+    const newBoard = [...board]
+    newBoard[index] = turn
+    setBoard(newBoard)
+    // cambiar el turno
+    const newTurn = turn === turns.X ? turns.O : turns.X
+    setTurn(newTurn)
+
+    // revisar si hay un ganador
+    const newWinner = checkWinnerFrom(newBoard)
+    if (newWinner) {
+      confetti()
+      setWinner(newWinner)
+    } else if (checkEndGame(newBoard)) {
+      setWinner(false)
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className='board'>
+      <h1>Ta Te Ti</h1>
+      <button onClick={resetGame}>Reset del juego</button>
+      <section className='game'>  
+      {
+        board.map((square, index) => {
+          return (
+            <Square 
+              key={index}
+              index={index}
+              updateBoard={updateBoard}
+            >
+              {square}
+            </Square>
+          )
+        })
+      }
+      </section>
+      <section className='turn'>
+        <Square isSelected={turn === turns.X}>
+          {turns.X}
+        </Square>
+        <Square isSelected={turn === turns.O}>
+          {turns.O}
+        </Square>
+      </section>
+      
+      <WinnerModal resetGame={resetGame} winner={winner} />
+    
+    </main>
   )
 }
 
