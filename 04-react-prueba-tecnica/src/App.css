@@ -1,0 +1,20 @@
+:root {
+    --fondo: #04080e;
+    --titulo: #FFF;
+    --titulo-resaltado: #4da7ff;
+    --texto: #707b8f;
+}
+body {
+    background-color: var(--fondo);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.AnimeCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
