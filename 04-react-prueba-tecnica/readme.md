@@ -1,11 +1,17 @@
-# Prueba técnica para Juniors y Trainees de React en Live Coding.
+# Reto Técnico - Midudev React 2024
 
-APIs:
+Este proyecto es una variación personal de un reto técnico del curso **Aprendiendo React 2024** de [midudev](https://midu.dev). En lugar de seguir el desafío original al pie de la letra, decidí crear una aplicación que muestra una imagen proveída por la API de MyAnimeList.
 
-- Facts Random: https://catfact.ninja/fact
-- Imagen random: https://cataas.com/cat/says/hello
-- Endpoint para usar: `https://cataas.com/cat/says/${firstWord}?fontSize=50&fontColor=red&json=true`
+## Funcionalidad
 
-- Recupera un hecho aleatorio de gatos de la primera API
-- Recuperar la primera palabra del hecho
-- Muestra una imagen de un gato con la primera palabra.
+La aplicación consume los datos de la API pública de MyAnimeList usando [Jikan API](https://api.jikan.moe/v4/anime/), para obtener información e imágenes relacionadas con diferentes animes.
+
+### API utilizada
+- [Jikan API](https://api.jikan.moe/v4/anime/)
+
+## Cómo ejecutar el proyecto
+
+1. Clona este repositorio.
+2. Instala las dependencias utilizando `npm install`.
+3. Ejecuta la aplicación con `npm start`.
+4. Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación en el navegador.
