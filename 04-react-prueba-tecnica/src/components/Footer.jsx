@@ -14,7 +14,7 @@ export default function Footer () {
         bgcolor: 'var(--fondo)',
         color: 'var(--texto)',
         height: 60,
-        marginTop: 'auto',
+        marginTop: '0.5rem',
         position: 'relative',
         borderTop: '1px solid gray',
         bottom: 0,

@@ -3,6 +3,8 @@
     --titulo: #FFF;
     --titulo-resaltado: #4da7ff;
     --texto: #707b8f;
+    --boton: #007FFF;
+    --boton-hover: #0072E5;
 }
 body {
     background-color: var(--fondo);
@@ -17,4 +19,24 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+.reloadButton {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: var(--boton);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    transition: all 150ms ease;
+    cursor: pointer;
+    border: 1px solid var(--boton);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.reloadButton:hover {
+    background-color: var(--boton-hover);
+    border-color: var(--boton-hover);
 }
