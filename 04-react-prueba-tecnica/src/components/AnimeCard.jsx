@@ -8,11 +8,14 @@ export default function AnimeCard ({ animeData, title, imgUrl, synopsis, episode
       <Typography
         variant='h3'
         sx={{
-          color: 'white',
+          color: 'transparent',
           alignSelf: 'center',
           justifySelf: 'center',
-          fontFamily: 'Roboto, sans-serif',
-          fontSize: { xs: '1.5rem', md: '3rem' }
+          fontFamily: 'system-ui, sans-serif',
+          fontSize: { xs: '1.5rem', md: '3rem' },
+          fontWeight: 'bold',
+          backgroundClip: 'text',
+          backgroundImage: 'linear-gradient(to right, #94a3b8, #64748b)'
         }}
       >
         RandomAni

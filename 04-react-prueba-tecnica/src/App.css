@@ -11,6 +11,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background-image: radial-gradient(circle 400px at 50% 50vh, #196eab, transparent);
 }
 
 .AnimeCard {
