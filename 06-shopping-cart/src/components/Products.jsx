@@ -17,11 +17,11 @@ export function Products ({ products }) {
           return (
             <li key={product.id}>
               <img
-                src={product.thumbnail}
-                alt={product.title}
+                src={product.image}
+                alt={product.name}
               />
               <div>
-                <strong>{product.title}</strong> - ${product.price}
+                <strong>{product.name}</strong> - ${product.price}
               </div>
               <div>
                 <button
