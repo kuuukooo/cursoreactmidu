@@ -66,7 +66,7 @@ function App() {
               loading={loading}
               type={SectionType.From}
               value={fromText}
-              onChange={setFromText}
+              onChange={setFromText} 
             />
           </Stack>
         </Col>
